@@ -1,0 +1,187 @@
+[gd_scene load_steps=7 format=3 uid="uid://bwiimf8xybep5"]
+
+[ext_resource type="Script" uid="uid://rq0cbspf1b7g" path="res://ui/MainMenu.gd" id="1_b00nv"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_eiy7p"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_h7a2f"]
+bg_color = Color(0.501407, 0.501406, 0.501406, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_color = Color(0, 0, 0, 0.203922)
+shadow_size = 5
+shadow_offset = Vector2(0, 3.31)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qoqlk"]
+bg_color = Color(0.501961, 0.501961, 0.501961, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_color = Color(0, 0, 0, 0.203922)
+shadow_size = 5
+shadow_offset = Vector2(0, 3.31)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kjwba"]
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_color = Color(0, 0, 0, 0.203922)
+shadow_size = 5
+shadow_offset = Vector2(0, 3.31)
+
+[sub_resource type="SystemFont" id="SystemFont_iwfq2"]
+subpixel_positioning = 0
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_b00nv")
+
+[node name="MainButtons" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -159.5
+offset_top = -71.0
+offset_right = 159.5
+offset_bottom = 71.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 8
+
+[node name="btnStart" type="Button" parent="MainButtons"]
+layout_mode = 2
+size_flags_vertical = 10
+theme_override_colors/icon_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 30
+theme_override_styles/focus = SubResource("StyleBoxEmpty_eiy7p")
+theme_override_styles/hover = SubResource("StyleBoxFlat_h7a2f")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_qoqlk")
+theme_override_styles/normal = SubResource("StyleBoxFlat_kjwba")
+text = "StartGame"
+
+[node name="btnOptions" type="Button" parent="MainButtons"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/icon_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 30
+theme_override_styles/focus = SubResource("StyleBoxEmpty_eiy7p")
+theme_override_styles/hover = SubResource("StyleBoxFlat_h7a2f")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_qoqlk")
+theme_override_styles/normal = SubResource("StyleBoxFlat_kjwba")
+text = "Options"
+
+[node name="btnExit" type="Button" parent="MainButtons"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/icon_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 30
+theme_override_styles/focus = SubResource("StyleBoxEmpty_eiy7p")
+theme_override_styles/hover = SubResource("StyleBoxFlat_h7a2f")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_qoqlk")
+theme_override_styles/normal = SubResource("StyleBoxFlat_kjwba")
+text = "Exit"
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -211.0
+offset_top = -212.0
+offset_right = 213.0
+offset_bottom = -101.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/shadow_offset_y = 10
+theme_override_fonts/font = SubResource("SystemFont_iwfq2")
+theme_override_font_sizes/font_size = 61
+text = "Cyber Frontier"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Options" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -215.0
+offset_top = -115.5
+offset_right = 215.0
+offset_bottom = 115.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="Options"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 42.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 30
+text = "Options"
+horizontal_alignment = 1
+
+[node name="btnOptionsBack" type="Button" parent="Options/Label"]
+layout_mode = 0
+offset_left = 113.0
+offset_top = 170.0
+offset_right = 313.0
+offset_bottom = 212.0
+size_flags_vertical = 3
+theme_override_colors/icon_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 30
+theme_override_styles/focus = SubResource("StyleBoxEmpty_eiy7p")
+theme_override_styles/hover = SubResource("StyleBoxFlat_h7a2f")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_qoqlk")
+theme_override_styles/normal = SubResource("StyleBoxFlat_kjwba")
+text = "Close"
+
+[node name="chkbntScreenSize" type="CheckButton" parent="Options/Label"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -128.0
+offset_top = 34.5
+offset_right = 131.0
+offset_bottom = 71.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Fullscreen"
+
+[connection signal="pressed" from="MainButtons/btnStart" to="." method="_on_btn_start_pressed"]
+[connection signal="pressed" from="MainButtons/btnOptions" to="." method="_on_btn_options_pressed"]
+[connection signal="pressed" from="MainButtons/btnExit" to="." method="_on_btn_exit_pressed"]
+[connection signal="pressed" from="Options/Label/btnOptionsBack" to="." method="_on_btn_options_back_pressed"]
+[connection signal="toggled" from="Options/Label/chkbntScreenSize" to="." method="_on_chkbnt_screen_size_toggled"]

@@ -1,0 +1,22 @@
+{
+  "mission_id": "",
+  "name": "Broken Mission",
+  "network": {
+	"nodes": [
+	  {
+		"type": "router"
+	  }
+	],
+	"links": [
+	  {
+		"from": "unknown_node",
+		"to": "s1"
+	  }
+	],
+	"services": [
+	  {
+		"type": "dns"
+	  }
+	]
+  }
+}

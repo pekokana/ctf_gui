@@ -1,0 +1,19 @@
+{
+  "mission_id": "sample01",
+  "title": "Intro to Web",
+  "description": "Webサーバー探索",
+  "difficulty": 1,
+  "user_filesystem": {
+	"root": "/",
+	"files": [{"path": "/home/user/readme.txt","type":"text","content":"hello"}]
+  },
+  "servers": [
+	{
+	  "id": "web01",
+	  "type": "web",
+	  "filesystem": {"root": "/", "files": [{"path":"/var/www/html/index.html","type":"text","content":"<h1>hi</h1>"}]},
+	  "network": {"interfaces":[{"name":"eth0","ip":"10.0.0.10","ports":[80]}]}
+	}
+  ],
+  "goals": {"flag": "FLAG{hello}"}
+}

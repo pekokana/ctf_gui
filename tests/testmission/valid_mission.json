@@ -1,0 +1,53 @@
+{
+  "mission_id": "mission_alpha_01",
+  "name": "Alpha Network Mission",
+  "version": "1.0.0",
+  "network": {
+	"nodes": [
+	  {
+		"id": "r1",
+		"type": "router",
+		"interfaces": [
+		  { "name": "eth0" },
+		  { "name": "eth1" }
+		]
+	  },
+	  {
+		"id": "s1",
+		"type": "switch",
+		"interfaces": [
+		  { "name": "sw0" }
+		]
+	  },
+	  {
+		"id": "srv1",
+		"type": "server",
+		"interfaces": [
+		  { "name": "ens0" }
+		]
+	  }
+	],
+	"links": [
+	  {
+		"from": "r1",
+		"to": "s1",
+		"bandwidth": 1000
+	  },
+	  {
+		"from": "s1",
+		"to": "srv1",
+		"bandwidth": 100
+	  }
+	],
+	"services": [
+	  {
+		"id": "dns01",
+		"type": "dns"
+	  },
+	  {
+		"id": "web01",
+		"type": "web"
+	  }
+	]
+  }
+}

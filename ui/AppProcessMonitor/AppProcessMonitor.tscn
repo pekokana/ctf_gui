@@ -1,0 +1,35 @@
+[gd_scene load_steps=2 format=3 uid="uid://b2rem4ey3s0q5"]
+
+[ext_resource type="Script" uid="uid://dycpw2di5k436" path="res://ui/AppProcessMonitor/AppProcessMonitor.gd" id="1_36d5p"]
+
+[node name="AppProcessMonitor" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_36d5p")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TitleLabel" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "Running Processes"
+
+[node name="HSeparator" type="HSeparator" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="ProcessListLabel" type="RichTextLabel" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="RefreshButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "Refresh"

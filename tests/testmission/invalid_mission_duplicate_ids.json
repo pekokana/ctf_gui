@@ -1,0 +1,28 @@
+{
+  "mission_id": "dup_test_01",
+  "name": "Duplicate ID Test",
+  "version": "1.0",
+  "network": {
+	"nodes": [
+	  {
+		"id": "n1",
+		"type": "router"
+	  },
+	  {
+		"id": "n1",
+		"type": "switch"
+	  }
+	],
+	"links": [],
+	"services": [
+	  {
+		"id": "svc1",
+		"type": "dns"
+	  },
+	  {
+		"id": "svc1",
+		"type": "web"
+	  }
+	]
+  }
+}

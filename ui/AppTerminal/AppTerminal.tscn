@@ -1,0 +1,57 @@
+[gd_scene load_steps=5 format=3 uid="uid://lvwk67ulfooe"]
+
+[ext_resource type="Script" uid="uid://dsn0n6rd58dbi" path="res://ui/AppTerminal/AppTerminal.gd" id="1_qdmv8"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qdmv8"]
+content_margin_left = 5.0
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_x4bwo"]
+content_margin_left = 3.0
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tnnj4"]
+content_margin_left = 3.0
+bg_color = Color(0, 0, 0, 1)
+
+[node name="AppTerminal" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_force_pass_scroll_events = false
+script = ExtResource("1_qdmv8")
+
+[node name="TerminalLayout" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 0
+
+[node name="Output" type="RichTextLabel" parent="TerminalLayout"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+focus_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_qdmv8")
+selection_enabled = true
+
+[node name="InputLine" type="HBoxContainer" parent="TerminalLayout"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="PromptLabel" type="Label" parent="TerminalLayout/InputLine"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 1
+theme_override_styles/normal = SubResource("StyleBoxFlat_x4bwo")
+
+[node name="InputText" type="LineEdit" parent="TerminalLayout/InputLine"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/normal = SubResource("StyleBoxFlat_tnnj4")

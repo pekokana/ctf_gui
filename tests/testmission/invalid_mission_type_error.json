@@ -1,0 +1,27 @@
+{
+  "mission_id": "bad_types_01",
+  "name": "Type Error Example",
+  "version": 123,
+  "network": {
+	"nodes": [
+	  {
+		"id": "r1",
+		"type": "invalid_type",
+		"interfaces": "wrong_type"
+	  }
+	],
+	"links": [
+	  {
+		"from": 100,
+		"to": "s1",
+		"bandwidth": -50
+	  }
+	],
+	"services": [
+	  {
+		"id": "dns01",
+		"type": "invalid_service"
+	  }
+	]
+  }
+}

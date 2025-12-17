@@ -1,0 +1,17 @@
+{
+  "mission_id": "unknown",
+  "name": "Unknown Fields",
+  "version": "1.0",
+  "extra_top_level": 999,
+  "network": {
+	"nodes": [
+	  {
+		"id": "r1",
+		"type": "router",
+		"mystery_field": "???"
+	  }
+	],
+	"links": [],
+	"services": []
+  }
+}

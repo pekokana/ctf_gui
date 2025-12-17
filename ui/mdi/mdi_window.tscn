@@ -1,0 +1,78 @@
+[gd_scene load_steps=4 format=3 uid="uid://c710h0155uva7"]
+
+[ext_resource type="Script" uid="uid://dafnrlh07dmdm" path="res://ui/mdi/mdi_base_window.gd" id="1_ugr1x"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ugr1x"]
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.0240387, 0.0486145, 0.0516655, 1)
+corner_radius_top_left = 15
+corner_detail = 12
+shadow_color = Color(0.294118, 0.294118, 0.294118, 1)
+shadow_size = 5
+shadow_offset = Vector2(3, 3)
+anti_aliasing = false
+anti_aliasing_size = 0.01
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7742w"]
+corner_radius_top_left = 15
+
+[node name="MDIWindow" type="Control"]
+custom_minimum_size = Vector2(225, 250)
+layout_mode = 3
+anchors_preset = 0
+offset_right = 225.0
+offset_bottom = 250.0
+mouse_filter = 1
+script = ExtResource("1_ugr1x")
+
+[node name="WindowBackground" type="Panel" parent="."]
+z_index = -10
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_ugr1x")
+
+[node name="VBoxRoot" type="VBoxContainer" parent="."]
+z_index = 100
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_constants/separation = 0
+
+[node name="TitleBar" type="HBoxContainer" parent="VBoxRoot"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/separation = 0
+
+[node name="TitleLabel" type="Label" parent="VBoxRoot/TitleBar"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme_override_styles/normal = SubResource("StyleBoxFlat_7742w")
+
+[node name="CloseButton" type="Button" parent="VBoxRoot/TitleBar"]
+layout_mode = 2
+size_flags_stretch_ratio = 0.0
+focus_mode = 0
+mouse_force_pass_scroll_events = false
+text = "x"
+
+[node name="ContentContainer" type="Control" parent="VBoxRoot"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+mouse_filter = 2
+
+[connection signal="pressed" from="VBoxRoot/TitleBar/CloseButton" to="." method="_on_close_requested"]

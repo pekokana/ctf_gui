@@ -1,0 +1,88 @@
+{
+	"mission_id": "web_access_01",
+	"title": "最初のハッキング: Webサーバー",
+	"description": "仮想Webサーバー (10.0.0.10:80) にアクセスし、ルートディレクトリにある隠しファイルを探してください。",
+	"difficulty": 1,
+	"allowed_apps": [
+		"1",
+		"2",
+		"5",
+		"3"
+	],
+	"user_filesystem": {
+		"root": "/home/user",
+		"files": [
+			{
+				"path": "/home/user/readme.txt",
+				"type": "text",
+				"content": "ターゲットIP: 10.0.0.10\nまずは ping コマンドで接続を確認してください。"
+			},
+			{
+				"path": "/home/user/.ssh/id_rsa",
+				"type": "binary",
+				"content": "PRIVATE_KEY_SIMULATION",
+				"generator": {}
+			}
+		]
+	},
+	
+	"servers": [
+		{
+			"id": "web01",
+			"type": "web",
+			"os": "Linux (simulated)",
+			"filesystem": {
+				"root": "/var/www/html",
+				"files": [
+					{
+						"path": "/var/www/html/index.html",
+						"type": "text",
+						"content": "<h1>Welcome to web01!</h1>"
+					},
+					{
+						"path": "/var/www/html/secret_flag_file",
+						"type": "text",
+						"content": "FLAG{Web_Access_Easy_Peasy}"
+					}
+				]
+			},
+			"network": {
+				"interfaces": [
+					{
+						"name": "eth0",
+						"ip": "10.0.0.10",
+						"ports": [80]
+					}
+				]
+			},
+			"connected_to": ["client"]
+		},
+		{
+		  "id": "db01",
+		  "type": "database",
+		  "filesystem": {
+			"root": "/",
+			"files": [
+			  { 
+				"path": "/var/lib/mysql/master_data.db", 
+				"type": "text", 
+				"content": "FLAG{sql_injection_master_2025}" 
+			  }
+			]
+		  },
+		  "network": {
+			"interfaces": [
+			  { "name": "eth0", "ip": "10.0.0.20", "ports": [3306] }
+			]
+		  }
+		}
+	],
+	
+	"network_devices": [],
+	
+	"goals": {
+		"flag": "FLAG{Web_Access_Easy_Peasy}"
+	},
+
+	"client_ip": "10.0.0.5"
+}
