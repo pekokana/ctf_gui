@@ -15,3 +15,6 @@ class_name NetworkDevice
 
 # マップ上の位置 (AppNetworkMap.gd が管理する)
 @export var position: Vector2 = Vector2.ZERO
+
+@export var is_scanned: bool = false	# スキャンされたか
+@export var open_ports: Array[int] = []	# 見つかったポートのリスト

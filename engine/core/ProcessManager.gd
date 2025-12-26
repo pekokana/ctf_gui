@@ -22,7 +22,7 @@ const APP_METADATA: Dictionary = {
 	AppID.TERMINAL: {
 			"name": "Terminal", # ユーザーフレンドリーな名前
 			"icon_path": "res://assets/icons/terminal.png", # ドック用アイコン
-			"scene": preload("res://ui/AppExplorer/AppFileExplorer.tscn"), # コンテンツシーン
+			"scene": preload("res://ui/AppTerminal/AppTerminal.tscn"), # コンテンツシーン
 			"title_format": "Terminal %d", # MDIタイトルフォーマット
 			"type_string": "terminal", # get_pids_by_app_type用
 			"min_size": Vector2(600, 450), # 最小サイズ
@@ -30,7 +30,7 @@ const APP_METADATA: Dictionary = {
 	AppID.FILE_EXPLORER: {
 			"name": "File Explorer", # ユーザーフレンドリーな名前
 			"icon_path": "res://assets/icons/terminal_icon.svg", # ドック用アイコン
-			"scene": preload("res://ui/AppTerminal/AppTerminal.tscn"), # コンテンツシーン
+			"scene": preload("res://ui/AppExplorer/AppFileExplorer.tscn"), # コンテンツシーン
 			"title_format": "File Explorer %d", # MDIタイトルフォーマット
 			"type_string": "file_explorer", # get_pids_by_app_type用
 			"min_size": Vector2(600, 450), # 最小サイズ

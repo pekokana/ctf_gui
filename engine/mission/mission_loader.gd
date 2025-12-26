@@ -55,13 +55,12 @@ func load_mission(json_path: String) -> ValidationReport:
 
 	# <--- ユーザーIPを環境設定に追加 ---
 	# Mission JSONにユーザーIPの定義がない場合、暫定でハードコード
-	var user_client_ip = current_mission_json.get("client_ip", "192.168.1.100") 
+	var user_client_ip = current_mission_json.get("client_ip", "0.0.0.0")
 	
 	# GL_Env にグローバル環境を初期化
-	if Engine.has_singleton("GL_Env"):
-		GlEnv.set_environment(user_client_ip, current_mission_json.mission_id)
-		# ターミナルの初期パスも設定
-		GlEnv.current_working_directory = current_mission_json.user_filesystem.get("root", "/")
+	GlEnv.set_environment(user_client_ip, current_mission_json.mission_id)
+	# ターミナルの初期パスも設定
+	GlEnv.current_working_directory = current_mission_json.user_filesystem.get("root", "/")
 
 	# 4.1. ユーザーFSの生成
 	user_fs = VirtualFilesystem.new()
@@ -84,13 +83,14 @@ func load_mission(json_path: String) -> ValidationReport:
 			return report
 			
 	# 4.3. ネットワークエンジンの初期化
-	var network_devices: Array = current_mission_json.get("network_devices", [])
-	# GL_VirtualNetworkEngine は Autoload のため直接アクセス
-	# <--- 修正箇所: servers (VirtualServerインスタンスの配列) を渡す
-	VirtualNetworkEngine.initialize_network(servers, network_devices)	
-
+	# 4.3. ネットワークトポロジーの構築 (リソースの生成)
+	# 先に JSON データを NetworkDevice リソースの配列に変換する
 	_load_network_topology(current_mission_json)
 
+	# 4.4. ネットワークエンジンの初期化
+	# クラス変数 self.network_devices (Array[NetworkDevice]) を渡す
+	VirtualNetworkEngine.initialize_network(servers, network_devices)
+	
 	# 5. ゴール設定
 	goals = current_mission_json.goals	
 
@@ -162,10 +162,8 @@ func _load_network_topology(data: Dictionary):
 	client_device.id = "client"
 	client_device.type = "client"
 	client_device.label = "You (Client)"
-	
-	# ★ 修正: GlEnvからグローバルIPを取得（load_missionで設定済み）
-	var client_ip = GlEnv.user_ip_address if is_instance_valid(GlEnv) else "192.168.1.100"
-	client_device.ip_address = client_ip
+	client_device.ip_address = GlEnv.user_ip_address if is_instance_valid(GlEnv) else "0.0.0.0"
+	print(GlEnv.user_ip_address)
 	
 	# クライアント接続先の確定
 	# クライアント側は、すべてのターゲットに接続していると仮定 (JSONでクライアント側の接続を定義するのは非効率なため)

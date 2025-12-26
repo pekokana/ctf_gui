@@ -122,3 +122,15 @@ func request_focus():
 	# MDIウィンドウがアクティブ化されたときに _on_window_activated が呼ばれるため、
 	# ここは call_deferred で安全に処理します。
 	input_text.call_deferred("grab_focus")
+
+## 外部（マップなど）からコマンドを流し込む
+func set_command_line(text: String, execute_now: bool = false):
+	# 入力フィールド（LineEdit）にテキストをセット
+	var input_field = $LineEdit # 実際のノード名に合わせてください
+	input_field.text = text
+	input_field.grab_focus() # ターミナルにフォーカスを当てる
+	input_field.caret_column = text.length() # カーソルを末尾へ
+
+	if execute_now:
+		# Enterキーを押したのと同じ処理を呼び出す
+		_on_input_submitted(text)

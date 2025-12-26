@@ -19,6 +19,7 @@ func initialize():
 	_register_command(LsCommand.new())
 	_register_command(PingCommand.new())
 	_register_command(CdCommand.new())
+	_register_command(NmapCommand.new())
 
 ## 作業ディレクトリを強制的に設定する (初期化用)
 func set_current_path(path: String):

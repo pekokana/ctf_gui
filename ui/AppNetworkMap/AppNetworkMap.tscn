@@ -10,3 +10,12 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_seyh4")
+
+[node name="ActionMenu" type="PopupMenu" parent="."]
+item_count = 3
+item_0/text = "Nmapスキャン"
+item_0/id = 0
+item_1/text = "SSH接続"
+item_1/id = 1
+item_2/text = "脆弱性診断"
+item_2/id = 2

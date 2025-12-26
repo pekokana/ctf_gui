@@ -119,7 +119,7 @@ grow_vertical = 2
 theme_override_constants/shadow_offset_y = 10
 theme_override_fonts/font = SubResource("SystemFont_iwfq2")
 theme_override_font_sizes/font_size = 61
-text = "Cyber Frontier"
+text = "CTF GUI"
 horizontal_alignment = 1
 vertical_alignment = 1
 

@@ -18,7 +18,7 @@ func execute(args: Array[String], current_path: String, input_data: String = "",
 	
 	# GL_Env (Autoload) から送信元IPを取得
 	# Autoload名はプロジェクト設定に依存しますが、以前の設計に従い GL_Env とします
-	if (get_tree() and get_tree().root.has_node("GL_Env")):
+	if (get_tree() and get_tree().root.has_node("GlEnv")):
 		source_ip = GlEnv.user_ip_address
 	else:
 		# エラーにはせず、デバッグ用にデフォルトIPで続行する場合

@@ -17,8 +17,8 @@ var current_working_directory: String = "/"
 
 # MissionLoaderから呼ばれる設定関数 (MissionLoader.gd の修正提案を参照)
 func set_environment(user_ip: String, mission_id: String):
-	user_ip_address = user_ip
-	current_mission_id = mission_id
+	self.user_ip_address = user_ip
+	self.current_mission_id = mission_id
 
 # ----------
 # ヘルパーメソッド

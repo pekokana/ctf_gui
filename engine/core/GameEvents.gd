@@ -1,0 +1,2 @@
+extends Node
+signal network_map_updated
